@@ -4,7 +4,7 @@
 
 
 // variabili
-let distance, utAge, utPrezzo, prezzoConEta;
+let distance, utAge, utPrezzo, prezzoConEta, prezzoFinale;
 
 const prezzoBase = 21;
 
@@ -14,13 +14,9 @@ distance = parseInt ( prompt ("quanti chilometri devi percorrere? controlla la m
 
 utAge = parseInt ( prompt ("quanti anni hai?"));
 
-console.log (distance, utAge);
-
 
 // calcolo prezzo biglietto, basato sulla distanza, in centesimi
 utPrezzo = distance * prezzoBase;
-
-console.log(utPrezzo);
 
 
 // calcolo prezzo finale basato sull'età
@@ -28,27 +24,57 @@ if (utAge < 18) {
     // se minore di 18, 20% di sconto
     const discount = (utPrezzo * 20) / 100;
     prezzoConEta =  utPrezzo - discount;
+
+
+    //conversione centesimi in euro
+    prezzoFinale = prezzoConEta / 100;
+
+
+    // debug
     console.log(discount);
     console.log(prezzoConEta);
+    console.log(prezzoFinale);
+
 
 } else if (utAge >= 65) {
     // se maggiore o uguale di 65, 40% di sconto
     const discount = (utPrezzo * 40) / 100;
     prezzoConEta =  utPrezzo - discount;
+
+
+    //conversione centesimi in euro
+    prezzoFinale = prezzoConEta / 100;
+
+
+    // debug
     console.log(discount);
     console.log(prezzoConEta);
+    console.log(prezzoFinale);
+
 
 } else {
     // se nessuna delle due prezzo base
+    //conversione centesimi in euro
+    prezzoFinale = utPrezzo / 100;
+
+
+    // debug
+    console.log(prezzoFinale);
+
 
 }
 
 
-
 // esportazione in html
+document.getElementById ("distance").innerHTML = distance
+document.getElementById ("utAge").innerHTML = utAge
+document.getElementById ("prezzo").innerHTML = prezzoFinale
 
 
 
+// main debug
+console.log(utPrezzo);
+console.log (distance, utAge);
 
 
 
