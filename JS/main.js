@@ -4,7 +4,7 @@
 
 
 // variabili
-let distance, utAge, utPrezzo, prezzoConEta, prezzoFinale;
+let distance, utAge, utPrezzo, prezzoConEta, prezzoFinale, toPay;
 
 const prezzoBase = 21;
 
@@ -31,9 +31,9 @@ if (utAge < 18) {
 
 
     // debug
-    console.log(discount);
-    console.log(prezzoConEta);
-    console.log(prezzoFinale);
+    // console.log(discount);
+    // console.log(prezzoConEta);
+    // console.log(prezzoFinale);
 
 
 } else if (utAge >= 65) {
@@ -47,9 +47,9 @@ if (utAge < 18) {
 
 
     // debug
-    console.log(discount);
-    console.log(prezzoConEta);
-    console.log(prezzoFinale);
+    // console.log(discount);
+    // console.log(prezzoConEta);
+    // console.log(prezzoFinale);
 
 
 } else {
@@ -59,22 +59,33 @@ if (utAge < 18) {
 
 
     // debug
-    console.log(prezzoFinale);
+    // console.log(prezzoFinale);
 
 
 }
+
+// conversione in valuta
+let euro = Intl.NumberFormat('en-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    useGrouping: false,
+});
+
+toPay = euro.format(prezzoFinale)
+
+
 
 
 // esportazione in html
 document.getElementById ("distance").innerHTML = distance
 document.getElementById ("utAge").innerHTML = utAge
-document.getElementById ("prezzo").innerHTML = prezzoFinale
+document.getElementById ("prezzo").innerHTML = toPay
 
 
 
 // main debug
-console.log(utPrezzo);
-console.log (distance, utAge);
+// console.log(utPrezzo);
+// console.log (distance, utAge);
 
 
 
