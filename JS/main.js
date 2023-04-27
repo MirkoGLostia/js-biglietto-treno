@@ -4,21 +4,45 @@
 
 
 // variabili
+let distance, utAge, utPrezzo, prezzoConEta;
+
+const prezzoBase = 21;
 
 
 // richiesta info utente
+distance = parseInt ( prompt ("quanti chilometri devi percorrere? controlla la mappa delle rotaie se non sei sicuro, e ricorda, se devi tornare devi raddoppiare la distanza"));
+
+utAge = parseInt ( prompt ("quanti anni hai?"));
+
+console.log (distance, utAge);
 
 
-// calcolo prezzo biglietto, basato sulle info
+// calcolo prezzo biglietto, basato sulla distanza, in centesimi
+utPrezzo = distance * prezzoBase;
+
+console.log(utPrezzo);
 
 
-// se minore di 18 20% di sconto
+// calcolo prezzo finale basato sull'età
+if (utAge < 18) {
+    // se minore di 18, 20% di sconto
+    const discount = (utPrezzo * 20) / 100;
+    prezzoConEta =  utPrezzo - discount;
+    console.log(discount);
+    console.log(prezzoConEta);
 
+} else if (utAge >= 65) {
+    // se maggiore o uguale di 65, 40% di sconto
+    const discount = (utPrezzo * 40) / 100;
+    prezzoConEta =  utPrezzo - discount;
+    console.log(discount);
+    console.log(prezzoConEta);
 
-// se maggiore o uguale di 65 40% di sconto
+} else {
+    // se nessuna delle due prezzo base
 
+}
 
-// se nessuna delle due prezzo base
 
 
 // esportazione in html
